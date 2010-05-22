@@ -90,7 +90,7 @@ $map = new TMap("recent_comments");
 }}}
 *NOTE*: a namespace can be set also passing an object, though this practice is quite risky
 since it can make your content unreachable if you do it wrong.
-A string based 
+A string based choice for namespace (a.k.a. resource label) is encouraged.
 {{{
 // 3. Put some  value (some examples)
 $map->put("key1", "some_string");
