@@ -2,11 +2,7 @@
 #basic usage of core and data structures from README
 
 = Tephlon PHP Persistence library usage=
-
-For recent updates, documentation, examples, issue tracking and discussion please always refer to this site:
-
-http://tephlon.googlecode.com/
-
+Here is some instructions for getting started with Tephlon.
 Feel free to contact me if you are interested in improving this software.
 
 == Install==
