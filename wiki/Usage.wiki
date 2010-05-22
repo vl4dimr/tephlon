@@ -6,7 +6,12 @@
 Here is some instructions for getting started with Tephlon.
 Feel free to contact me if you are interested in improving this software.
 
-== Install==
+== Install ==
+Check out latest Tephlon source with SVN 
+{{{
+svn checkout http://tephlon.googlecode.com/svn/trunk/ tephlon-read-only
+}}}
+
 Typically this is the directory layout you want to keep in your Tephlon project:
 
 {{{
@@ -17,6 +22,8 @@ Typically this is the directory layout you want to keep in your Tephlon project:
                      |_> Tephlon
 
 }}}
+
+To use Tephlon you will need to include Tephlon.php in your scripts, as explained in next paragraph. So, move Tephlon main directory accordingly to your needs.
 
 == Core API Usage  Example==
 This example snippet will illustrate how to leverage the Tephlon core API directly without any Data Structure wrapping around the basic persistence I/O operations.
