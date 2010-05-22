@@ -1,5 +1,6 @@
+#summary basic usage of core and data structures from README
 #labels Phase-Deploy,Featured
-#basic usage of core and data structures from README
+#sidebar TableOfContents
 
 = Tephlon PHP Persistence library usage=
 Here is some instructions for getting started with Tephlon.
