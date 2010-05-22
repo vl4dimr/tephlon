@@ -45,16 +45,17 @@ $my_precious = $t->retrieve("my_precious_label");
 
 {{{
 // You can also specify a fallback defaul value if the record is not found (optional)
-// $my_precious = $t->retrieve("my_precious_label", array());
+$my_precious = $t->retrieve("my_precious_label", array());
 
-/*
-Doing as above is the same of doing:
+}}}
 
+*NOTE*: Doing as above is the same of doing:
+
+{{{
 $my_precious = $t->retrieve("my_precious_label");
 if($myprecious != null){
     $my_precious = array();
 }
-*/
 
 // 3. Now you are free to modify your "precious" variable and make it become any type, from boolean to
 // any class object. Once you want to save it to Tephlon persistence layer, simply do:
@@ -64,13 +65,15 @@ $my_precious = functionToCalculateImportantData($x, $y);
 
 // 4. Saving to persistence!
 $t->register($my_precious, "my_precious_label"); 
-
-// Now the new value of my precious will be saved, so that next script execution (read: page visit) will have that
-// content.
-
-// You can also specify a lifetime (in seconds) for this record. For example:
-// For example here, the content will be available for the next 24h
+}}}
+Now the new value of my precious will be saved, so that next script execution (read: page view) will have that content.
+*NOTE*: You can also specify a lifetime (in seconds) for this record. For example here, the content will be available for the next 24h.
+{{{
 $t->register($my_precious, "my_precious_label", 24*60*60);
+}}}
+Now the data is saved to persistence layer. Let's retrieve it.
+{{{
+$var = $t->retrieve("my_precious_label");
 }}}
 
 == Using TMap Data Structure ==
