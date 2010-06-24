@@ -20,7 +20,7 @@ class TBuffer_FIFO_demo extends Controller {
 		if($nick){
 			$f = form_open('datastructures/TBuffer_FIFO_demo/putLine');
 			$name = "line";
-			$label = '<label class="nick">&lt;'.anchor(get_class().'/resetNick',$nick).'&gt;</label>';
+			$label = '<label class="nick">&lt;'.anchor('/datastructures/TBuffer_FIFO_demo/resetNick',$nick).'&gt;</label>';
 		}
 		else { // nickname not yet set
 			$f = form_open('datastructures/TBuffer_FIFO_demo/putNick');

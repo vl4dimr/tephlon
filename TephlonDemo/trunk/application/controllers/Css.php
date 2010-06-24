@@ -7,7 +7,7 @@ class Css extends Controller{
 		$n = $a[count($a)]; 
 		$this->width_desc = is_numeric($n) && $n > 0  ? $n : 500;echo $this->width_desc;
 		$this->green = "#0a0";
-		$this->grey0 = "#dcdcdc";
+		$this->grey0 = "#aaa";
 		$this->grey1 = "#777";
 		$this->grey2 = "#666";
 		$this->grey3 = "#555";
@@ -58,11 +58,16 @@ h1{
 }
 blockquote {
     margin: 2em;
+    margin-right:0;
+    float: right;
+    width: 50%;
+    font-weight: bold;
+    color: $this->grey1;
     background: #f8fff8;
     font-style: italic;
-    font-size: 110%;
+    font-size: 120%;
     border: 1px solid  #d8ddd8;
-    padding: 2em;
+    padding: 1em;
 }
 #header{
     margin-bottom: 20px;
