@@ -22,7 +22,7 @@ everytime from scratch.</strong>
 </p>
 
 <h3>Traditional PHP-RDBMS architecture</h3>
-<img alt="Traditional architecture (PHP and a RDBMS like MySQl." src="http://codesigner.eu/tephlon/assets/image/PHP-ORM-RDBMS-schema.jpg" /> 
+<img alt="Traditional architecture (PHP and a RDBMS like MySQl)." src="http://codesigner.eu/tephlon/assets/image/PHP-ORM-RDBMS-schema.jpg" /> 
 <p>Traditional architecture (PHP + MySQL or other RDBMS)</p>
 
 <strong>Business logic</strong> (PHP objects, classes, methods..) will need 
