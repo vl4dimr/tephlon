@@ -57,9 +57,7 @@ are and makes them persistently stored. That's because Tephlon is a piece of PHP
 <h2>No tables or columns? Then what?</h2>
 Tephlon is built on top of two alternative - way more flexible - main concepts:
 <ul>
-    <li><strong>Resource</strong>:
-A Resource is a container of Records and it's identified by a "Resource Label".</li>
-    <li><strong>Record</strong>:
-A Record is the representation of a piece of data of any shape (object, variable, boolean).
+<li> <strong>Resource</strong>: A Resource is a container of Records and it's identified by a "Resource Label". </li>
+<li> <strong>Record</strong>: A Record is the representation of a piece of data of any shape (object, variable, boolean).
 Each record belongs to a Resource, and it's identified by a "Record Label".</li>
 </ul>
