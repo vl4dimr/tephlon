@@ -10,16 +10,23 @@ function getChat($lines){
     }
     return $chat;
 }
+$the_errors='';
+if(count($errors) > 0){
+    foreach($errors as $e){
+        $the_errors.= '<div class="error">'.$e.'</div>';
+    }
+}
 
 // Fill the data array
 
 $data['title'] = $title;
 $data['assets'] = $assets;
-$data['errors'] = $errors;
+$data['css_file'] = 'tbuffer_fifo';
+//$data['errors'] = $errors;
 
 
 // Full width top 'description' div
-$data['top'] = <<< EOF
+$top = <<< EOF
 <div class="description">
 <h2>A chat engine using the data structure TBuffer_FIFO</h2>
 <p><b>TBuffer_FIFO</b> is a data structure in which we can simply add objects (in this example
@@ -38,12 +45,25 @@ non-associative array containing all the objects inside of it (method <b>getAll(
 EOF;
 
 // Left block, 'code' div
-$data['code'] = highlight_file(dirname(__FILE__)."/../../models/ChatStream.php", true);
+$code = highlight_file(dirname(__FILE__)."/../../models/ChatStream.php", true);
 
    
 // Right block, 'window' div
-$data['window'] = '<div id="chat">'.getChat($lines).'</div>'.
+$window = '<div id="chat">'.getChat($lines).'</div>'.
                   '<div id="typein">'.$form.'</div>';
 
+$data['content'] = '
+<div id="top" class="separator">
+'.$top.'
+</div>
+<div id="code">
+
+<p>'.$code.'</p>
+</div>
+  
+<div id="window">
+    <div>'.$the_errors.'</div>
+    '.$window.'
+</div>';
 // Invoke main view
 $this->load->view('main', $data);

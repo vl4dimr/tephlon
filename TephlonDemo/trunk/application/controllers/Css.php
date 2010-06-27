@@ -3,95 +3,28 @@ class Css extends Controller{
 	function Css(){
 		parent::Controller();
 		$this->width = 960;
-		$a = $this->uri->segment_array();
-		$n = $a[count($a)]; 
-		$this->width_desc = is_numeric($n) && $n > 0  ? $n : 500;echo $this->width_desc;
 		$this->green = "#0a0";
 		$this->grey0 = "#aaa";
 		$this->grey1 = "#777";
 		$this->grey2 = "#666";
 		$this->grey3 = "#555";
-		
 		$this->serif = "Palatino, Georgia, 'Times New Roman', serif";
 		$this->sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 	}
-	function index(){
-		print( "
-@CHARSET \"ISO-8859-1\";
-*{
-    font-family: $this->serif;
-    font-size: 16px;
-    color: $this->grey1;
-    line-height: 1.5em;
-}
-form, div, span {
-    margin:0;
-    padding:0;
-}
-
-ul, ol, li {
-    margin: 0.4em 0;
+	
+	function home() {
+		
 	}
-h1, h2, h3 {
-	padding: 0;
-	font-size: 1.4em;
-	margin: 2em 0 0.3em 0;
-	line-height: 1.3em;
-	font-family: $this->sans;
-	color: $this->grey1;
-}
-h3, h4{
-    font-style: italic;
-    border-left: 2px solid $this->green ;
-    padding-left: 0.5em;
-    color: $this->grey2
-}
-h2{
-	font-size: 1.7em;
-	color: $this->grey3;
-	border-left: 3px solid $this->green ;
-    padding-left: 0.5em;
-}
-h1{
-    font-size: 2em;
-    color: $this->green;
-}
-blockquote {
-    margin: 2em;
-    margin-right:0;
-    float: right;
-    width: 50%;
-    font-weight: bold;
-    color: $this->grey1;
-    background: #f8fff8;
-    font-style: italic;
-    font-size: 120%;
-    border: 1px solid  #d8ddd8;
-    padding: 1em;
-}
-#header{
-    margin-bottom: 20px;
-    color: $this->green;
-    padding: 0.2em 0.5em 0.5 0em; 
-}
-.separator {
-    border-bottom: 1px solid $this->grey1;
-}
-a {
-    color: $this->green;
-    text-decoration: none;
-    cursor: pointer;
-}
-#wrap {
-    width: $this->width px;
-    margin: 0 auto;
-}
- #code {
+	function tbuffer_fifo(){
+		$this->index();
+		$this->width_code =  480;
+		print("
+#code {
   display: inline;
   line-height: 1em;
     float: left;
-    width: $this->width_desc px;
-	}
+    width: $this->width_code px;
+    }
 #code p span{
     font-family: monospace;
     font-size: 95%;
@@ -100,12 +33,12 @@ a {
     font-size: 105%;
     line-height: 1.5em;
     color: $this->grey1;
-	}
+    }
 #window {
     display:inline;
     float: right;
     padding:5px;
-    width: ".($this->width - ($this->width_desc + 10))."px;
+    width: ".($this->width - ($this->width_code + 10))."px;
     border-top: 0px;
 }
 #typein, #chat{
@@ -145,14 +78,6 @@ a {
     margin-bottom:0;
     padding-bottom:0;
 }
-
-
-li{
-    list-style: square;
-}
-ul,ol {
-    margin:0; padding:0;
-}
 .typeform {
     width: 300px;
 }
@@ -161,12 +86,95 @@ a .nick :hover {
     border-bottom: 1px solid $this->green;
 }
 form .nick{
-	margin:0;
-	padding: 0;
+    margin:0;
+    padding: 0;
 }
 form {
 display: inline;
+}	
+		");
+	}
+	
+	function index(){
+		print( "
+@CHARSET \"ISO-8859-1\";
+*{
+    font-family: $this->serif;
+    font-size: 16px;
+    color: $this->grey1;
+    line-height: 1.5em;
 }
+form, div, span {
+    margin:0;
+    padding:0;
+}
+
+ul, ol, li {
+    margin: 0.4em 0;
+	}
+h1, h2, h3 {
+	padding: 0;
+	font-size: 1.4em;
+	margin: 2em 0 0.3em 0;
+	line-height: 1.3em;
+	font-family: $this->sans;
+	color: $this->grey1;
+}
+h3, h4{
+    font-style: italic;
+    border-left: 2px solid $this->green ;
+    padding-left: 0.5em;
+    color: $this->grey2
+}
+h2{
+	font-size: 1.7em;
+	color: $this->grey3;
+	border-left: 3px solid $this->green ;
+    padding-left: 0.5em;
+}
+h1{
+    font-size: 2em;
+    margin-top:1em;
+    color: $this->green;
+}
+blockquote {
+    margin: 2em;
+    margin-right:0;
+    float: right;
+    width: 50%;
+    font-weight: bold;
+    color: $this->grey1;
+    background: #f8fff8;
+    font-style: italic;
+    font-size: 120%;
+    border: 1px solid  #d8ddd8;
+    padding: 1em;
+}
+#header{
+    margin-bottom: 20px;
+    color: $this->green;
+    padding: 0.2em 0.5em 0.5 0em; 
+}
+.separator {
+    border-bottom: 1px solid $this->grey1;
+}
+a {
+    color: $this->green;
+    text-decoration: none;
+    cursor: pointer;
+}
+#wrap {
+    width: $this->width px;
+    margin: 0 auto;
+}
+ 
+li{
+    list-style: square;
+}
+ul,ol {
+    margin:0; padding:0;
+}
+
 #footer {
     clear:both;
     height:100px;
@@ -181,6 +189,18 @@ input{
 	color: #333;
 	margin: 10px 0px 5px;
 	padding: 10px;	
+}
+.description_image {
+background-color: #F4F4F4;
+border: 1px solid #DDD;
+font-size: 11px;
+font-style: italic;
+margin-bottom: 30px;
+overflow: hidden;
+padding-bottom: 15px;
+padding-bottom: 15px;
+padding: 20px 20px 15px;
+text-align: center;
 }
 ");
 		/* END CSS*/

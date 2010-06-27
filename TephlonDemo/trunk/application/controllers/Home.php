@@ -9,7 +9,10 @@ class Home extends Controller{
 	}
 	
 	function index(){
-		
-		$this->load->view(get_class().'_view', $this->data);
+		$this->load->model('WikiScraper');
+		$commits = $this->WikiScraper->getCommits();
+        $this->data['content'] = $this->load->view('Commits_view', array('commits' => $commits), true);
+       
+		$this->load->view('main', $this->data);
 	}
 }

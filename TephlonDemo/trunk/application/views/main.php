@@ -1,13 +1,8 @@
 <?php
-$the_errors='';
-if(count($errors) > 0){
-    foreach($errors as $e){
-        $the_errors.= '<div class="error">'.$e.'</div>';
-    }
+if(!isset($css_file)){
+	$css_file = "index";
 }
-if(!isset($codeWidth)){
-	$codeWidth = null;
-}
+
 ?>
 
 <?php doctype('xhtml1-trans')?>
@@ -16,7 +11,7 @@ if(!isset($codeWidth)){
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <title><?php echo $title ?>  | Tephlon Demo</title> 
  
-<?php echo link_tag('index.php/css/index/'.$codeWidth)?>
+<?php echo link_tag('index.php/css/'.$css_file  )?>
 
 <!--[if lte IE 8]>
     <?php echo link_tag('index.php/css/ie')?>
@@ -25,23 +20,12 @@ if(!isset($codeWidth)){
 <?php if(isset($assets)) echo $assets?>
 
 </head>
-<body>
+<body onload="prettyPrint()">
 <div id="wrap">
 <div id="header" class="separator">
 <h1>Tephlon Demo</h1>
 </div>
-<div id="top" class="separator">
-<?php echo $top?>
-</div>
-<div id="code">
-
-<p><?php echo $code?></p>
-</div>
-  
-<div id="window">
-    <div><?php echo $the_errors?></div>
-	<?php echo $window?>
-</div>
+<?php echo $content?>
 <div id="footer">
 &nbsp;
 </div>
