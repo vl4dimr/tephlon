@@ -219,4 +219,68 @@ text-align: center;
 }
 	";
 	}
+    function commits(){
+    	$this->index();
+    	echo "
+    	ul.commits {
+    	padding: 2em 0;
+    	width: 400px;
+    	 	
+    	}
+    	ul.commits li {
+    	  list-style:none;
+    	  padding: 0 0 1em 0; 
+        }
+        #clear {
+            clear:both;
+        }
+        .svninfo, .svninfo a{
+            width: 30px; 
+            color: white;
+           padding: 0em;
+           font-size: 30px;
+           width: 60px;
+    	   font-family:  $this->sans;
+    	    line-height:28px;
+           display:block;
+           text-align:center;
+        }
+        div.svninfo{
+            display:inline;
+            float:left;
+            margin: 0 1em 1em 0;
+        }
+    	ul.commits li span.message{
+            display:inline;
+            color:inherit;
+            font-size:100%;
+        }
+        ul.commits li span.date {
+            color: $this->grey1;
+            display:block;
+            margin-top:2em;
+            font-size: 13px;
+        }
+        ul.commits li span.date strong {
+            font-weight: normal;
+            color: $this->grey2;
+        }
+    	ul.commits li span.revision {
+    	   background:  $this->grey1;
+    	   border: 1px solid $this->grey2;
+    	   border-bottom: 1px solid $this->grey3;
+    	   height: 60px;
+    	  
+    	}
+    	ul.commits li span.author a {
+            background: $this->green;
+            border: 1px solid $this->grey1;
+            display:block;
+            width: 60px;
+            font-size:13px;
+            margin:0;
+            
+        }
+    	"; 
+    }
 }
