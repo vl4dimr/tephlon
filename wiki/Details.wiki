@@ -1,7 +1,7 @@
 #summary Tephlon explained more in detail.
 
 
-<div class="description">
+
 <h2>Tephlon: persistent storage library in PHP for PHP.</h2>
 <strong>Tephlon</strong> is a library intended to <strong>simplify</strong>and 
 <strong>speed up</strong> development of modern web applications in PHP.
@@ -22,9 +22,9 @@ everytime from scratch.</strong>
 </p>
 
 <h3>Traditional PHP-RDBMS architecture</h3>
-<div class="description_image"><img src="http://codesigner.eu/tephlon/assets/image/PHP-ORM-RDBMS-schema.jpg" /> 
+<img src="http://codesigner.eu/tephlon/assets/image/PHP-ORM-RDBMS-schema.jpg" /> 
 <p>Traditional architecture (PHP + MySQL or other RDBMS)</p>
-</div>
+
 <strong>Business logic</strong> (PHP objects, classes, methods..) will need 
 <strong>ORM logic </strong>(other PHP code) to typically translate classes to tables,
 objects to tuples and actions (methods) to queries).
@@ -42,9 +42,9 @@ features, but it\'s complicated, backup of data is a pain, and you need an expen
 hosting account. The key of Tephlon is the "fast development" approach, so for now REDIS driver
 is really a low priority thing.
 <h3>Tephlon architecture</h3>
-<div class="description_image"><img src="http://codesigner.eu/tephlon/assets/image/PHP-TEPHLON-schema.jpg" /> 
+<img src="http://codesigner.eu/tephlon/assets/image/PHP-TEPHLON-schema.jpg" /> 
 <p>Tephlon architecture</p>
-</div>
+
 Business logic will extend or simply instantiate and use a Tephlon class to obtain 
 a Resource, give it the object/variable/array which needs to be stored together with 
 its label. Next time logic will retrieve the object it will be exactly identical. 
@@ -63,4 +63,3 @@ A Resource is a container of Records and it\'s identified by a "Resource Label".
 A Record is the representation of a piece of data of any shape (object, variable, boolean).
 Each record belongs to a Resource, and it\'s identified by a "Record Label".</li>
 </ul>
-</div>
