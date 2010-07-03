@@ -1,15 +1,6 @@
 <?php
 // Helper functions
-function getChat($lines){
-    $chat ="";
-    for($i = 0; $i < count($lines); $i++){
-        $line =  '<span class="lineNum">'.($i+1)."</span> ".date("h:i:s",$lines[$i]->time). " ".
-                         '<span class="nick">&lt;'.$lines[$i]->nick."&gt;</span> ". $lines[$i]->text . "\n";
 
-        $chat.= '<div class="line">'.$line.'</div>';
-    }
-    return $chat;
-}
 $the_errors='';
 if(count($errors) > 0){
     foreach($errors as $e){
@@ -20,7 +11,8 @@ if(count($errors) > 0){
 // Fill the data array
 
 $data['title'] = $title;
-$data['assets'] = $assets;
+$data['assets'] = '';//js_asset('jquery.safeEnter.js');
+$data['assets'] .= js_asset('ajax.chat.demo.js');
 $data['css_file'] = 'tbuffer_fifo';
 //$data['errors'] = $errors;
 
@@ -46,24 +38,20 @@ EOF;
 
 // Left block, 'code' div
 $code = highlight_file(dirname(__FILE__)."/../../models/ChatStream.php", true);
+$code = '<div id="code">'.$code.'</div>';
 
    
 // Right block, 'window' div
-$window = '<div id="chat">'.getChat($lines).'</div>'.
-                  '<div id="typein">'.$form.'</div>';
+$window =   $this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view',array('lines' => $lines),true).'</div>'.
+             "<div>$the_errors</div>".
+            '<div id="typein">'.$form.'</div>';
+$window = '<div id="window">'.$window.'</div>';
 
-$data['content'] = '
-<div id="top" class="separator">
-'.$top.'
-</div>
-<div id="code">
+$d['s12a'] = $top;
+$d['s1b'] = $code;
+$d['s2b'] = $window;
 
-<p>'.$code.'</p>
-</div>
-  
-<div id="window">
-    <div>'.$the_errors.'</div>
-    '.$window.'
-</div>';
+$data['content'] = $this->load->view("splittings/s12a_s1b_s2b_view", $d, true);
+
 // Invoke main view
 $this->load->view('main', $data);

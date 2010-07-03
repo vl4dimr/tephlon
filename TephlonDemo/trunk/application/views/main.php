@@ -11,7 +11,7 @@ if(!isset($css_file)){
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
 <title><?php echo $title ?>  | Tephlon Demo</title> 
  
-<?php echo link_tag('index.php/css/'.$css_file  )?>
+<?php echo link_tag('index.php/css/'.$css_file)?>
 
 <!--[if lte IE 8]>
     <?php echo link_tag('index.php/css/ie')?>
@@ -20,7 +20,7 @@ if(!isset($css_file)){
 <?php if(isset($assets)) echo $assets?>
 
 </head>
-<body onload="prettyPrint()">
+<body>
 <div id="wrap">
 <div id="header" class="separator">
 <h1>Tephlon Demo</h1>

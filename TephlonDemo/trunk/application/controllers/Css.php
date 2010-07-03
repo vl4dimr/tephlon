@@ -10,6 +10,8 @@ class Css extends Controller{
 		$this->grey3 = "#555";
 		$this->serif = "Palatino, Georgia, 'Times New Roman', serif";
 		$this->sans = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+		$this->width1 =  480;
+		header('Content-type: text/css');
 	}
 	
 	function home() {
@@ -17,15 +19,9 @@ class Css extends Controller{
 	}
 	function tbuffer_fifo(){
 		$this->index();
-		$this->width_code =  480;
+		
 		print("
-#code {
-  display: inline;
-  line-height: 1em;
-    float: left;
-    width: $this->width_code px;
-    }
-#code p span{
+#code span{
     font-family: monospace;
     font-size: 95%;
 }
@@ -35,10 +31,6 @@ class Css extends Controller{
     color: $this->grey1;
     }
 #window {
-    display:inline;
-    float: right;
-    padding:5px;
-    width: ".($this->width - ($this->width_code + 10))."px;
     border-top: 0px;
 }
 #typein, #chat{
@@ -191,16 +183,44 @@ input{
 	padding: 10px;	
 }
 .description_image {
-background-color: #F4F4F4;
-border: 1px solid #DDD;
-font-size: 11px;
-font-style: italic;
-margin-bottom: 30px;
-overflow: hidden;
-padding-bottom: 15px;
-padding-bottom: 15px;
-padding: 20px 20px 15px;
-text-align: center;
+	background-color: #F4F4F4;
+	border: 1px solid #DDD;
+	font-size: 11px;
+	font-style: italic;
+	margin-bottom: 30px;
+	overflow: hidden;
+	padding-bottom: 15px;
+	padding-bottom: 15px;
+	padding: 20px 20px 15px;
+	text-align: center;
+}
+.mediaContainer{
+        background: #f2f2f2;
+        border: 1px solid #dedede;
+        border-top: 1px solid #d8d8d8;
+        margin: 1em 0;
+}
+.media {
+    margin-top:0;
+    background: white;
+    border-top: 1px solid #fefefe;
+    margin-bottom: 1em;
+}
+    
+// Splittings
+.s1ab { // Top
+    display:block;
+}
+.s1b {// Code 
+    display: inline;
+    float: left;
+    width: $this->width1 px;
+}
+.s2b { // Window
+    display:inline;
+    float: right;
+    padding:5px;
+    width: ".($this->width - ($this->width1 + 10))."px;
 }
 ");
 		/* END CSS*/
@@ -223,13 +243,12 @@ text-align: center;
     	$this->index();
     	echo "
     	ul.commits {
-    	padding: 2em 0;
-    	width: 400px;
-    	 	
+    	padding: 1em 1em;
+    	width: 350px;	 	
     	}
     	ul.commits li {
     	  list-style:none;
-    	  padding: 0 0 1em 0; 
+    	  padding: 0.7em; 
         }
         #clear {
             clear:both;
@@ -282,5 +301,14 @@ text-align: center;
             
         }
     	"; 
+    }
+    function wiki(){
+    	$this->index();
+        echo '
+    #wiki pre span{
+        font-size:90%;
+        line-heigth:0.8em;      
+    }
+        ';
     }
 }

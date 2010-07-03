@@ -18,12 +18,14 @@ class TBuffer_FIFO_demo extends Controller {
 		$nick = $this->_getNick();
 		// Generating form
 		if($nick){
-			$f = form_open('datastructures/TBuffer_FIFO_demo/putLine');
+			$this->data['form_action']="datastructures/TBuffer_FIFO_demo/putLine";
+			$f = form_open($this->data['form_action']);
 			$name = "line";
 			$label = '<label class="nick">&lt;'.anchor('/datastructures/TBuffer_FIFO_demo/resetNick',$nick).'&gt;</label>';
 		}
 		else { // nickname not yet set
-			$f = form_open('datastructures/TBuffer_FIFO_demo/putNick');
+			$this->data['form_action']="datastructures/TBuffer_FIFO_demo/putNick";
+			$f = form_open($this->data['form_action']);
 			$name = "nick";
 			$label = "<label>Enter nickname</label>";
 		}
@@ -80,8 +82,25 @@ class TBuffer_FIFO_demo extends Controller {
 		// Redirect browser to the main page (avoids accidental resubmission on refresh)
 		$this->_redirectToIndex();
 	}
-	function _redirectToIndex(){
-		redirect('datastructures/'.get_class().'/index', 'refresh');
+    
+	function isAjax(){
+	    if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+	        return false;
+        }
+        return true;
+    }
+	function _redirectToIndex($ajaxReturn = null){
+		if(!$this->isAjax()){
+		  redirect('datastructures/'.get_class().'/index', 'refresh');
+		}
+		else{
+			$e = $this->_getErrors();
+			if(count($e) > 0){
+				die($e[0]);
+			}
+			//Positive ack is always the chat stream
+			$this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view', $this->ChatStream->getLines());
+		}
 	}
     function _addError($str){
         $fd = $this->session->flashdata('errors');

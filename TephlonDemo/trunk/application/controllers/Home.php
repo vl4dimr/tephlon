@@ -14,5 +14,6 @@ class Home extends Controller{
         $this->data['content'] = $this->load->view('Commits_view', array('commits' => $commits), true);
         $this->data['css_file'] = 'commits';
 		$this->load->view('main', $this->data);
+		
 	}
 }

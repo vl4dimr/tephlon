@@ -41,7 +41,10 @@ class WikiScraper extends Model{
 		}
 		$author = $html->find("tr td a", 0);
 		$author->setAttribute("href", site_url().'About');
-			
+		$tds = $html->find('td');
+		foreach($tds as $td){
+		  $td->outertext = $td->innertext;
+		}
 		$this->map->put($label, $html->save());
 		$html->clear();
 		unset($html);
