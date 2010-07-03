@@ -11,7 +11,7 @@ if(count($errors) > 0){
 // Fill the data array
 
 $data['title'] = $title;
-$data['assets'] = '';//js_asset('jquery.safeEnter.js');
+$data['assets'] = js_asset('autofocus.js');
 $data['assets'] .= js_asset('ajax.chat.demo.js');
 $data['css_file'] = 'tbuffer_fifo';
 //$data['errors'] = $errors;
@@ -42,9 +42,9 @@ $code = '<div id="code">'.$code.'</div>';
 
    
 // Right block, 'window' div
-$window =   $this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view',array('lines' => $lines),true).'</div>'.
-             "<div>$the_errors</div>".
-            '<div id="typein">'.$form.'</div>';
+$window =   $this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view',array('lines' => $lines),true).
+            '<div id="typein">'.$form.'</div>'.
+            "<div id='the_errors'>$the_errors</div>";
 $window = '<div id="window">'.$window.'</div>';
 
 $d['s12a'] = $top;

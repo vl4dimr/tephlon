@@ -19,7 +19,7 @@ class ChatStream extends Model{
     
     // Validate and insert the new line in the buffer
     public function addLine($line){
-        if(!$this->validateLine($line)){
+        if(!$this->validateLineObject($line)){
             return false;
         }
         // Infinite add, TBuffer will trim the oldest away
@@ -31,8 +31,21 @@ class ChatStream extends Model{
         return $this->buf->getAll();
     }
 
-    private function validateLine($line){
+    private function validateLineObject($line){
         if($line instanceof Line){
+            return true;
+        }
+        return false;
+    }
+    public function validateLine($str){
+       if(strlen($str) > 0){
+       	return true;
+       }
+       return false;
+    }
+    public function validateNick($str){
+    	$len = strlen($str);
+        if( $len > 3 && $len < 10){
             return true;
         }
         return false;

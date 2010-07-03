@@ -27,7 +27,7 @@ class TBuffer_FIFO_demo extends Controller {
 			$this->data['form_action']="datastructures/TBuffer_FIFO_demo/putNick";
 			$f = form_open($this->data['form_action']);
 			$name = "nick";
-			$label = "<label>Enter nickname</label>";
+			$label = "<label class=\"nick\"><a href=\"#\">Enter nickname</a></label>";
 		}
 		$f .= $label;
 		$f .= form_input( array(
@@ -99,7 +99,7 @@ class TBuffer_FIFO_demo extends Controller {
 				die($e[0]);
 			}
 			//Positive ack is always the chat stream
-			$this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view', $this->ChatStream->getLines());
+			$this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view', array('lines' => $this->ChatStream->getLines()));
 		}
 	}
     function _addError($str){
@@ -114,18 +114,12 @@ class TBuffer_FIFO_demo extends Controller {
     }
 	function putNick(){
 		$nick = strip_tags($this->input->post('nick'));
-		if( !is_null($nick)){
-			$len = strlen($nick);
-			if( $len > 3 && $len < 10){
-				//echo "setting cookie $nick";
-				setcookie('nick', $nick);
-			}
-			else{
-				$this->_addError('insert a nick between 3 and 9 letters long.');
-			}
+		if( $this->ChatStream->validateNick($nick)){
+			//echo "setting cookie $nick";
+			setcookie('nick', $nick);
 		}
 		else{
-			$this->_addError('you must insert a nick.');
+			$this->_addError('insert a nick between 3 and 9 letters long.');
 		}
 		$this->_redirectToIndex();
 	}
