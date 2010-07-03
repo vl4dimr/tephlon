@@ -16,8 +16,7 @@ if(!isset($css_file)){
 <!--[if lte IE 8]>
     <?php echo link_tag('index.php/css/ie')?>
 <![endif]--> 
-<?php echo js_asset('jquery.min.js')?>
-<?php if(isset($assets)) echo $assets?>
+
 
 </head>
 <body>
@@ -30,7 +29,8 @@ if(!isset($css_file)){
 &nbsp;
 </div>
 </div>
-
+<?php echo js_asset('jquery.min.js')?>
+<?php if(isset($assets)) echo $assets?>
 </body>
 </html>
 

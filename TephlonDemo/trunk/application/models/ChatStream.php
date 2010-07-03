@@ -13,8 +13,8 @@ class ChatStream extends Model{
     	$resourceLabel = 'CI_'.get_class();
     	// Create tephlon resource (FIFO Buffer)
         $this->buf = new TBuffer_FIFO($resourceLabel);
-        // Buffer will keep always the first 25 lines
-        $this->buf->setTbufferSize(25);
+        // Buffer will keep always the first 20 lines
+        $this->buf->setTbufferSize(20);
     }
     
     // Validate and insert the new line in the buffer
@@ -33,19 +33,6 @@ class ChatStream extends Model{
 
     private function validateLineObject($line){
         if($line instanceof Line){
-            return true;
-        }
-        return false;
-    }
-    public function validateLine($str){
-       if(strlen($str) > 0){
-       	return true;
-       }
-       return false;
-    }
-    public function validateNick($str){
-    	$len = strlen($str);
-        if( $len > 3 && $len < 10){
             return true;
         }
         return false;

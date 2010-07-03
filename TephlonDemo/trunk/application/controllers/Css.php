@@ -38,9 +38,7 @@ class Css extends Controller{
     margin: 10px auto;
     padding: 0.3em 0;  
 }
-#typein {
-    display:inline;
-}
+
 .line{
   padding: 0.2em 0em  0.3em 0.2em;
   margin-top:0.2em;
@@ -69,6 +67,7 @@ class Css extends Controller{
     border: 0;
     margin-bottom:0;
     padding-bottom:0;
+    display:inline;
 }
 .typeform {
     width: 300px;
@@ -88,8 +87,7 @@ display: inline;
 	}
 	
 	function index(){
-		print( "
-@CHARSET \"ISO-8859-1\";
+		print( "@CHARSET \"ISO-8859-1\";
 *{
     font-family: $this->serif;
     font-size: 16px;
@@ -145,7 +143,7 @@ blockquote {
 #header{
     margin-bottom: 20px;
     color: $this->green;
-    padding: 0.2em 0.5em 0.5 0em; 
+    padding: 0.2em 0.5em 0.5em 0em; 
 }
 .separator {
     border-bottom: 1px solid $this->grey1;
@@ -156,7 +154,7 @@ a {
     cursor: pointer;
 }
 #wrap {
-    width: $this->width px;
+    width: ".$this->width."px;
     margin: 0 auto;
 }
  
@@ -207,16 +205,17 @@ input{
     margin-bottom: 1em;
 }
     
-// Splittings
-.s1ab { // Top
+/* Splittings */
+
+.s1ab { /* Top */
     display:block;
 }
-.s1b {// Code 
+.s1b { /* Code */
     display: inline;
     float: left;
-    width: $this->width1 px;
+    width: ".$this->width1."px;
 }
-.s2b { // Window
+.s2b { /* Window */
     display:inline;
     float: right;
     padding:5px;
@@ -227,7 +226,6 @@ input{
 	}
 	function ie(){
 		echo "
-@CHARSET \"ISO-8859-1\";
 #wrap {
     margin:0;
     margin-left: 30px;

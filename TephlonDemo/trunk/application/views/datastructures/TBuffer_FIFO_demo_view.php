@@ -11,8 +11,7 @@ if(count($errors) > 0){
 // Fill the data array
 
 $data['title'] = $title;
-$data['assets'] = js_asset('autofocus.js');
-$data['assets'] .= js_asset('ajax.chat.demo.js');
+$data['assets'] = js_asset('ajax.chat.demo.js');
 $data['css_file'] = 'tbuffer_fifo';
 //$data['errors'] = $errors;
 
@@ -22,7 +21,7 @@ $top = <<< EOF
 <div class="description">
 <h2>A chat engine using the data structure TBuffer_FIFO</h2>
 <p><b>TBuffer_FIFO</b> is a data structure in which we can simply add objects (in this example
-each text line is an object) until we reach the configured buffer size (in this case 25).
+each text line is an object) until we reach the configured buffer size (in this case 20).
 TBuffer_FIFO will automatically delete the oldest objects either when:
 </p>
 

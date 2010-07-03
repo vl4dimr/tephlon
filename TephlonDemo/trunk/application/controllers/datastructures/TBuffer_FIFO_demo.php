@@ -114,7 +114,7 @@ class TBuffer_FIFO_demo extends Controller {
     }
 	function putNick(){
 		$nick = strip_tags($this->input->post('nick'));
-		if( $this->ChatStream->validateNick($nick)){
+		if( $this->_validateNick($nick)){
 			//echo "setting cookie $nick";
 			setcookie('nick', $nick);
 		}
@@ -123,4 +123,12 @@ class TBuffer_FIFO_demo extends Controller {
 		}
 		$this->_redirectToIndex();
 	}
+    
+ function _validateNick($str){
+        $len = strlen($str);
+        if( $len > 3 && $len < 10){
+            return true;
+        }
+        return false;
+    }
 }
