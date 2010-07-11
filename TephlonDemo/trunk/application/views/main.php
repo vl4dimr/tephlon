@@ -5,7 +5,7 @@ if(!isset($css_file)){
 
 ?>
 
-<?php doctype('xhtml1-trans')?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head profile="http://gmpg.org/xfn/11"> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
@@ -22,11 +22,11 @@ if(!isset($css_file)){
 <body>
 <div id="wrap">
 <div id="header" class="separator">
-<h1>Tephlon Demo</h1>
+<h1><a href="<?php echo site_url()?>">Tephlon Demo</a></h1>
 </div>
 <?php echo $content?>
 <div id="footer">
-&nbsp;
+<?php $this->load->view('elements/footer')?>
 </div>
 </div>
 <?php echo js_asset('jquery.min.js')?>

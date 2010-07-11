@@ -46,6 +46,7 @@ $("#typein form label.nick a").click(function(event) {
   event.preventDefault();
   $(this)
    .text("Enter nickname");
+  $(".typeform").focus();
 });
 
 $('input.typeform').keypress(function(event) {
@@ -106,7 +107,7 @@ $('input.typeform').keypress(function(event) {
                 
                 if(action.endsWith('putLine'))
                 { // Successful Line insert
-                    // alert('successful putline');
+                    
                 }
                 else { // Successful Nick insert
                      $("#typein form label.nick").hide().html( '<a href="#">&lt;'+$('.typeform').val()+'&gt;</a>' ).fadeIn(1200);
@@ -114,6 +115,8 @@ $('input.typeform').keypress(function(event) {
                       event.preventDefault();
                       $(this)
                        .text("Enter nickname");
+                      // Reposition the focus on form 
+                      $(".typeform").focus();
                     });
                 }
             }
@@ -123,6 +126,8 @@ $('input.typeform').keypress(function(event) {
              
             // Reset field in any case
             $('input.typeform').val('');
+
+ 
             // END SYNCH
             }
         });

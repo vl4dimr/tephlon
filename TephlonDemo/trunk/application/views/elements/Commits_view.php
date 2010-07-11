@@ -1,6 +1,11 @@
 <?php
-echo "<ul class='commits mediaContainer'>";
+echo "
+    <ul class='commits mediaContainer'><div class='media'><h3>Meanwhile in SVN..</h3></div>";
         foreach($commits as $c){
+        	// Don't publish internal commits
+        	if(stristr($c->msg, "*int*")!== false){
+        		continue;
+        	}
             $date = $c->date; 
             //2010-06-10T16:30:34.53
             $str =  substr($date, 0,4)."-".substr($date, 5,2)."-".substr($date,8,2)." ".substr($date,11,8);

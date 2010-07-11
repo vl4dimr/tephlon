@@ -39,18 +39,51 @@ class WikiScraper extends Model{
 			}
 			$img->outertext = '<div class="description_image">'.$img->outertext.$alt.'</div>';
 		}
+		$as = $html->find('a');
+		foreach($as as $a){
+		  $a->setAttribute("href", basename($a->getAttribute("href")));
+		}
 		$author = $html->find("tr td a", 0);
 		$author->setAttribute("href", site_url().'About');
+		
+		$h2as = $html->find('h1 a, h2 a');
+        foreach($h2as as $h2a){
+          $h2a->outertext = substr($h2a->innertext, 0, strlen($h2a->innertext)-6);
+        }
+        
 		$tds = $html->find('td');
 		foreach($tds as $td){
 		  $td->outertext = $td->innertext;
 		}
+		
 		$this->map->put($label, $html->save());
 		$html->clear();
 		unset($html);
 		return $this->map->get($label);
 	}
-
+    
+	public function getWikiList(){
+		$url="http://code.google.com/p/tephlon/w/list";
+		$label = md5($url);
+        $r = $this->map->get($label);
+        if($r){
+            //return $r;
+        }
+        $html = file_get_html($url);
+        $list = $html->find('td.col_0');
+        $r = array();
+        foreach($list as $el){
+        	$l = $el->first_child();
+        	$l->innertext = trim($l->innertext);
+        	$l->href=site_url().'wiki/'.basename($l->href);
+        	$r[] = $l->outertext;
+        }
+        $this->map->put($label, $html->save());
+        $html->clear();
+        unset($html);
+        return $r;
+		
+	}
 
 	public function reset($url=null){
 		if(!$url){
@@ -71,8 +104,9 @@ class WikiScraper extends Model{
 			$msg = $e->getElementByTagName('msg')->innertext;
 			$commits[]= new Commit($revision, $date, $author, $msg);
 		}
-//		$xml->clear();
-//		unset($xml);
+		$text = $xml->save();
+		$xml->clear();
+		unset($xml);
 		return $commits;
 	}
 

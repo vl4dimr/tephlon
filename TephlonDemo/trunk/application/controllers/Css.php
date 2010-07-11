@@ -13,10 +13,6 @@ class Css extends Controller{
 		$this->width1 =  480;
 		header('Content-type: text/css');
 	}
-	
-	function home() {
-		
-	}
 	function tbuffer_fifo(){
 		$this->index();
 		
@@ -37,6 +33,7 @@ class Css extends Controller{
     width: 100%;
     margin: 10px auto;
     padding: 0.3em 0;  
+    margin-bottom: 1em;
 }
 
 .line{
@@ -127,11 +124,9 @@ h1{
     margin-top:1em;
     color: $this->green;
 }
-blockquote {
+blockquote, h1.headline {
     margin: 2em;
-    margin-right:0;
     float: right;
-    width: 50%;
     font-weight: bold;
     color: $this->grey1;
     background: #f8fff8;
@@ -140,6 +135,10 @@ blockquote {
     border: 1px solid  #d8ddd8;
     padding: 1em;
 }
+blockquote {
+   margin-right:0;
+   width: 50%;
+	}
 #header{
     margin-bottom: 20px;
     color: $this->green;
@@ -169,7 +168,18 @@ ul,ol {
     clear:both;
     height:100px;
     border-top: 1px solid $this->green;
+    margin-top:2em;
 }
+.column{
+    display:inline;
+    margin-right: 4em;
+    float: left;
+	}
+.column li {
+    margin-left: 1em;
+	}
+
+
 input{
     float: right;
 }
@@ -193,20 +203,27 @@ input{
 	text-align: center;
 }
 .mediaContainer{
-        background: #f2f2f2;
+        background: #efefef;
         border: 1px solid #dedede;
         border-top: 1px solid #d8d8d8;
         margin: 1em 0;
 }
+.media h3{
+    margin:0;
+    color: $this->grey2;
+    font-size:120%;
+	}
 .media {
     margin-top:0;
     background: white;
-    border-top: 1px solid #fefefe;
+    border: 1px solid #d0d0d0;
+    border-top: 1px solid #ddd;
     margin-bottom: 1em;
+    padding: 0.7em; 
 }
     
 /* Splittings */
-
+.splitting {margin-bottom: 2em;}
 .s1ab { /* Top */
     display:block;
 }
@@ -227,28 +244,32 @@ input{
 	function ie(){
 		echo "
 #wrap {
-    margin:0;
-    margin-left: 30px;
+    margin:0 auto;
+    /* margin-left: 30px; */
 }
 .lineNum {
 	float: left;
 	margin:0;
 	padding:0;
 }
+#typein form label, #typein form input{
+    display: inline;
+	}
 	";
 	}
     function commits(){
+    	$this->width1 = 570;
     	$this->index();
     	echo "
     	ul.commits {
     	padding: 1em 1em;
-    	width: 350px;	 	
+    	width: 350px; 	
     	}
+    	#s1b{}
     	ul.commits li {
     	  list-style:none;
-    	  padding: 0.7em; 
         }
-        #clear {
+        .clear {
             clear:both;
         }
         .svninfo, .svninfo a{
@@ -269,7 +290,7 @@ input{
         }
     	ul.commits li span.message{
             display:inline;
-            color:inherit;
+            color:$this->grey1;
             font-size:100%;
         }
         ul.commits li span.date {
@@ -283,22 +304,34 @@ input{
             color: $this->grey2;
         }
     	ul.commits li span.revision {
-    	   background:  $this->grey1;
-    	   border: 1px solid $this->grey2;
-    	   border-bottom: 1px solid $this->grey3;
+    	   background: $this->grey1;
+    	   border: 1px solid $this->grey0;
+    	   border-bottom:0;
     	   height: 60px;
     	  
     	}
     	ul.commits li span.author a {
             background: $this->green;
-            border: 1px solid $this->grey1;
+            border: 1px solid $this->grey0;
+            border-top:0;
             display:block;
             width: 60px;
             font-size:13px;
             margin:0;
-            
         }
     	"; 
+    }
+    function home(){
+    $this->commits();
+       echo "
+    	h1.headline{
+    	  display:block;
+    	  float:none;
+    	  margin:0px;
+    	  padding:0.5em;
+            
+        }
+        ";
     }
     function wiki(){
     	$this->index();
