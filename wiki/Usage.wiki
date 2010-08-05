@@ -53,7 +53,7 @@ $my_precious = $t->retrieve("my_precious_label", array());
 
 {{{
 $my_precious = $t->retrieve("my_precious_label");
-if($myprecious != null){
+if(is_null($myprecious)){
     $my_precious = array();
 }
 
