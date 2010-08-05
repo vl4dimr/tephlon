@@ -60,7 +60,7 @@ if(is_null($myprecious)){
 // 3. Now you are free to modify your "precious" variable and make it become any type, from boolean to
 // any class object. Once you want to save it to Tephlon persistence layer, simply do:
 
-$my_precious = functionToCalculateImportantData($x, $y);
+$my_precious = calculateImportantData($x, $y);
 // Other business logic...
 
 // 4. Saving to persistence!
