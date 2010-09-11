@@ -11,7 +11,7 @@
 |	http://example.com/
 |http://213.243.142.47/pdt/workspace_pdt/TephlonDemo/index.php/TBuffer_FIFO_demo/
 */
-$config['base_url']	= "http://213.243.142.47/pdt/workspace_pdt/TephlonDemo/";
+$config['base_url']	= "http://localhost/pdt/workspace_pdt/TephlonDemo/";
 
 /*
 |--------------------------------------------------------------------------
