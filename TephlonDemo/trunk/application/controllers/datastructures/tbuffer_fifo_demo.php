@@ -21,10 +21,10 @@ class TBuffer_FIFO_demo extends Controller {
 			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putLine";
 			$f = form_open($this->data['form_action']);
 			$name = "line";
-			$label = '<label class="nick">&lt;'.anchor('/datastructures/TBuffer_FIFO_demo/resetNick',$nick).'&gt;</label>';
+			$label = '<label class="nick">&lt;'.anchor('/datastructures/tbuffer_fifo_demo/resetNick',$nick).'&gt;</label>';
 		}
 		else { // nickname not yet set
-			$this->data['form_action']="datastructures/TBuffer_FIFO_demo/putNick";
+			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putNick";
 			$f = form_open($this->data['form_action']);
 			$name = "nick";
 			$label = "<label class=\"nick\"><a href=\"#\">Enter nickname</a></label>";
