@@ -41,7 +41,7 @@ $code = '<div id="code">'.$code.'</div>';
 
    
 // Right block, 'window' div
-$window =   $this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view',array('lines' => $lines),true).
+$window =   $this->load->view('datastructures/tbuffer_fifo_demo_chat_view',array('lines' => $lines),true).
             '<div id="typein">'.$form.'</div>'.
             "<div id='the_errors'>$the_errors</div>";
 $window = '<div id="window">'.$window.'</div>';
