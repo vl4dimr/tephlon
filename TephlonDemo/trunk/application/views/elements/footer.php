@@ -5,8 +5,8 @@
 <div class="column">
     <h3>Examples</h3>
     <ul>
-        <li><a href="datastructures/TCounter_demo">Access Counter</a></li>
-        <li><a href="datastructures/TBuffer_FIFO_demo">Ajax Chat</a></li>
+        <li><a href="datastructures/tcounter_demo">Access Counter</a></li>
+        <li><a href="datastructures/tbuffer_fifo_demo">Ajax Chat</a></li>
     </ul>
 </div>
 <div class="column">

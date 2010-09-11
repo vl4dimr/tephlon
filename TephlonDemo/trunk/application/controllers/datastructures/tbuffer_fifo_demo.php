@@ -18,7 +18,7 @@ class TBuffer_FIFO_demo extends Controller {
 		$nick = $this->_getNick();
 		// Generating form
 		if($nick){
-			$this->data['form_action']="datastructures/TBuffer_FIFO_demo/putLine";
+			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putLine";
 			$f = form_open($this->data['form_action']);
 			$name = "line";
 			$label = '<label class="nick">&lt;'.anchor('/datastructures/TBuffer_FIFO_demo/resetNick',$nick).'&gt;</label>';
@@ -40,7 +40,7 @@ class TBuffer_FIFO_demo extends Controller {
               $this->data['form'] = $f;
               $this->data['errors'] = $this->_getErrors();
         // Form is ready, let's delegate view.
-        $this->load->view('datastructures/'.get_class().'_view', $this->data);
+        $this->load->view('datastructures/'.strtolower(get_class()).'_view', $this->data);
 	}
 	function _getErrors(){
 		$err = $this->session->flashdata('errors');
@@ -99,7 +99,7 @@ class TBuffer_FIFO_demo extends Controller {
 				die($e[0]);
 			}
 			//Positive ack is always the chat stream
-			$this->load->view('datastructures/TBuffer_FIFO_demo_Chat_view', array('lines' => $this->ChatStream->getLines()));
+			$this->load->view('datastructures/tbuffer_fifo_demo_chat_view', array('lines' => $this->ChatStream->getLines()));
 		}
 	}
     function _addError($str){

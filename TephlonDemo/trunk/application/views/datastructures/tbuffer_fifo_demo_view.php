@@ -36,7 +36,7 @@ non-associative array containing all the objects inside of it (method <b>getAll(
 EOF;
 
 // Left block, 'code' div
-$code = highlight_file(dirname(__FILE__)."/../../models/ChatStream.php", true);
+$code = highlight_file(dirname(__FILE__)."/../../models/chatstream.php", true);
 $code = '<div id="code">'.$code.'</div>';
 
    

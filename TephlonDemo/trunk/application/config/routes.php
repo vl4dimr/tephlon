@@ -40,8 +40,7 @@
 |
 */
 
-//$route['default_controller'] = "datastructures/TBuffer_FIFO_demo";
-$route['default_controller'] = "Home";
+$route['default_controller'] = "home";
 $route['scaffolding_trigger'] = "";
 
 
