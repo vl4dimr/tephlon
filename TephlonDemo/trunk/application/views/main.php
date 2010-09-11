@@ -26,7 +26,7 @@ if(!isset($css_file)){
 </div>
 <?php echo $content?>
 <div id="footer">
-<?php $this->load->view('elements/footer')?>
+<?php $this->load->view('elements/footer', array("site_url" => site_url()))?>
 </div>
 </div>
 <?php echo js_asset('jquery.min.js')?>
