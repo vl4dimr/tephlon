@@ -60,7 +60,7 @@ $('input.typeform').keypress(function(event) {
         while(url.endsWith('/')){
             url = url.substr(0, url.length - 1);
         }
-        if(url.endsWith('index') || url.endsWith()){
+        if(url.endsWith('index')){
             url = url.substr(0, url.length - 5);
         }
         var form_data = null;
