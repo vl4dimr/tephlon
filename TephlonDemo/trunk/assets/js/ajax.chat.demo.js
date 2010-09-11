@@ -65,7 +65,7 @@ $('input.typeform').keypress(function(event) {
         }
         var form_data = null;
         if (isSendingNick()) {
-            action = url+'/putNick';
+            action = url+'/putnick';
             //alert('is sending nick, action = '+action);
             var the_nick = $('.typeform').val();
             if(!validateNick(the_nick)){
@@ -77,7 +77,7 @@ $('input.typeform').keypress(function(event) {
             };
         }
         else{
-            action = url+'/putLine';
+            action = url+'/putline';
             //alert('is sending line, action ='+action);
             the_line = $('.typeform').val();
             if(!validateLine(the_line)){
@@ -105,7 +105,7 @@ $('input.typeform').keypress(function(event) {
                 // Generic success: update chat view
                 $('#chat').replaceWith(msg);
                 
-                if(action.endsWith('putLine'))
+                if(action.endsWith('putline'))
                 { // Successful Line insert
                     
                 }

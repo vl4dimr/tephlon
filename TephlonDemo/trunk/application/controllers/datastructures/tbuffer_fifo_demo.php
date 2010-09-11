@@ -18,13 +18,13 @@ class TBuffer_FIFO_demo extends Controller {
 		$nick = $this->_getNick();
 		// Generating form
 		if($nick){
-			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putLine";
+			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putline";
 			$f = form_open($this->data['form_action']);
 			$name = "line";
-			$label = '<label class="nick">&lt;'.anchor('/datastructures/tbuffer_fifo_demo/resetNick',$nick).'&gt;</label>';
+			$label = '<label class="nick">&lt;'.anchor('/datastructures/tbuffer_fifo_demo/resetnick',$nick).'&gt;</label>';
 		}
 		else { // nickname not yet set
-			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putNick";
+			$this->data['form_action']="datastructures/tbuffer_fifo_demo/putnick";
 			$f = form_open($this->data['form_action']);
 			$name = "nick";
 			$label = "<label class=\"nick\"><a href=\"#\">Enter nickname</a></label>";
@@ -63,11 +63,11 @@ class TBuffer_FIFO_demo extends Controller {
 			return false;
 		}
 	}
-	function resetNick(){
+	function resetnick(){
 		setcookie('nick', '');
 		$this->_redirectToIndex();
 	}
-	function putLine(){
+	function putline(){
 		$line = strip_tags($this->input->post('line'));
 
 		if( !is_null($line) && strlen($line) > 0 ){
@@ -112,7 +112,7 @@ class TBuffer_FIFO_demo extends Controller {
     	}
     	$this->session->set_flashdata('errors',$fd); 		
     }
-	function putNick(){
+	function putnick(){
 		$nick = strip_tags($this->input->post('nick'));
 		if( $this->_validateNick($nick)){
 			//echo "setting cookie $nick";
