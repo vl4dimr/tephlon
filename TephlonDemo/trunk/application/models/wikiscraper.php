@@ -95,7 +95,7 @@ class WikiScraper extends Model{
 	 
 	public function getCommits(){
 		$commits = null;
-		$xml = file_get_html('http://codesigner.eu/tephlon/data/commits.xml'); 
+		$xml = file_get_html('http://tephlon.codesigner.eu/assets/xml/commits.xml'); 
 		$entries = $xml->find('logentry'); 
 		foreach($entries as $e){
 			$revision = $e->getAttribute('revision');
