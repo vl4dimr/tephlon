@@ -65,7 +65,7 @@ $('input.typeform').keypress(function(event) {
         }
         var form_data = null;
         if (isSendingNick()) {
-            action = url+'putNick';
+            action = url+'/putNick';
             //alert('is sending nick, action = '+action);
             var the_nick = $('.typeform').val();
             if(!validateNick(the_nick)){
@@ -77,7 +77,7 @@ $('input.typeform').keypress(function(event) {
             };
         }
         else{
-            action = url+'putLine';
+            action = url+'/putLine';
             //alert('is sending line, action ='+action);
             the_line = $('.typeform').val();
             if(!validateLine(the_line)){
