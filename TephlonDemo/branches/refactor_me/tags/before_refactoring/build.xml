@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<project name="build_css" basedir="." default="css">
+	<property name="lessc" value="C:\Ruby192\bin\lessc.bat" />
+	<property name="src" value="${project_loc}/assets/css/less/" />
+	<property name="out" value="${project_loc}/assets/css/" />
+
+	<!-- Compile the .less -->
+	<target name="css">
+		<echo>Compiling .less sources</echo>
+		<echo>src: ${src}*less</echo>
+		<echo>out: ${out}*css</echo>
+
+		<fileset id="src.less" dir="${src}">
+			<include name="*.less" />
+		</fileset>
+
+		<apply executable="${lessc}" parallel="yes">
+			<fileset refid="src.less" />
+		</apply>
+
+		<copy todir="${out}" overwrite="yes" verbose="yes">
+			<fileset id="src.css" dir="${src}">
+				<include name="*.css" />
+			</fileset>
+		</copy>
+	</target>
+</project>
