@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|assets|robots\.txt)
+RewriteRule ^(.*)$ /pdt/workspace_pdt/TephlonDemo/index.php/$1 [L]
+#RewriteRule ^(.*)$ /index.php/$1 [L]
+
