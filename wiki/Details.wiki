@@ -22,7 +22,7 @@ everytime from scratch.</strong>
 </p>
 
 <h3>Traditional PHP-RDBMS architecture</h3>
-<img alt="Traditional architecture (PHP and a RDBMS like MySQl)." src="http://tephlon.codesigner.eu/assets/image/PHP-ORM-RDBMS-schema.jpg" /> 
+<img alt="Traditional architecture (PHP and a RDBMS like MySQl)." src="https://dl.dropbox.com/u/33077/CDN/tephlon/PHP-ORM-RDBMS-schema.jpg" /> 
 <p>Traditional architecture (PHP + MySQL or other RDBMS)</p>
 
 <strong>Business logic</strong> (PHP objects, classes, methods..) will need 
@@ -42,7 +42,7 @@ features, but it's complicated, backup of data is a pain, and you need an expens
 hosting account. The key of Tephlon is the "fast development" approach, so for now REDIS driver
 is really a low priority thing.
 <h3>Tephlon architecture</h3>
-<img alt="Tephlon architecture" src="http://tephlon.codesigner.eu/assets/image/PHP-TEPHLON-schema.jpg" /> 
+<img alt="Tephlon architecture" src="https://dl.dropbox.com/u/33077/CDN/tephlon/PHP-TEPHLON-schema.jpg" /> 
 
 
 Business logic will extend or simply instantiate and use a Tephlon class to obtain 
